@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:"
+    />
+    <title>ClipShelf</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="brand">
+        <img src="../assets/icon.png" alt="" />
+        <div>
+          <h1>ClipShelf</h1>
+          <p>Your clipboard, on your device.</p>
+        </div>
+      </div>
+      <button id="pause" class="quiet" type="button" aria-pressed="false">Pause</button>
+    </header>
+
+    <main>
+      <section class="controls" aria-label="Clipboard controls">
+        <label class="search">
+          <span aria-hidden="true">⌕</span>
+          <input id="search" type="search" placeholder="Search clipboard history…" autofocus />
+          <kbd>Ctrl Shift V</kbd>
+        </label>
+        <div class="toolbar">
+          <label class="toggle">
+            <input id="startup" type="checkbox" />
+            <span>Start at login</span>
+          </label>
+          <span id="count" class="count"></span>
+          <button id="clear" class="danger" type="button">Clear unpinned</button>
+        </div>
+      </section>
+
+      <section id="notice" class="notice hidden" role="status"></section>
+      <section id="list" class="list" aria-live="polite"></section>
+
+      <section id="empty" class="empty hidden">
+        <div class="empty-icon">⌘C</div>
+        <h2>Nothing here yet</h2>
+        <p>Copy some text and it will appear here automatically.</p>
+      </section>
+    </main>
+
+    <template id="item-template">
+      <article class="clip" tabindex="0">
+        <button class="clip-body" type="button" title="Copy again">
+          <p class="clip-text"></p>
+          <div class="meta">
+            <time></time>
+            <span class="length"></span>
+          </div>
+        </button>
+        <div class="actions">
+          <button class="pin" type="button" title="Pin">Pin</button>
+          <button class="delete" type="button" title="Delete">Delete</button>
+        </div>
+      </article>
+    </template>
+
+    <script src="renderer.js"></script>
+  </body>
+</html>

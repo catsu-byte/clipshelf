@@ -36,7 +36,7 @@
     },
     "win": {
       "target": "nsis",
-      "icon": "assets/icon.ico",
+      "icon": "assets/icon.png",
       "artifactName": "ClipShelf-${version}-Windows-${arch}-Setup.${ext}"
     },
     "nsis": {

@@ -9,8 +9,8 @@
     "start": "electron .",
     "test": "node --check src/main.js && node --check src/preload.js && node --check src/renderer.js",
     "pack": "electron-builder --dir",
-    "dist:linux": "electron-builder --linux AppImage",
-    "dist:windows": "electron-builder --win nsis"
+    "dist:linux": "electron-builder --linux AppImage --publish never",
+    "dist:windows": "electron-builder --win nsis --publish never"
   },
   "devDependencies": {
     "electron": "^44.7.0",
